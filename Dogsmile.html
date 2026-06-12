@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Smile | Anesthesia-Free Pet Dental Cleaning</title>
+    <style>
+        :root {
+            --primary: #40E0D0; /* Teal / Turquoise */
+            --primary-dark: #20b2aa;
+            --secondary: #1a3c4e; /* Dark Blue */
+            --accent: #eef8f8;
+            --text-dark: #333333;
+            --text-light: #555555;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.7;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--secondary);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(26, 60, 78, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 60, 78, 0.3);
+            background-color: #112a38;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--secondary);
+            box-shadow: 0 4px 15px rgba(64, 224, 208, 0.4);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(64, 224, 208, 0.5);
+        }
+
+        /* Typography */
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* Navbar */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 90px;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(26, 60, 78, 0.9) 0%, rgba(64, 224, 208, 0.8) 100%), url('https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 4rem;
+            margin-bottom: 25px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            opacity: 0.9;
+        }
+
+        /* Split Layouts (About & Contact) */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .split-image-container {
+            position: relative;
+        }
+
+        .split-image-container::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 4px solid var(--primary);
+            border-radius: var(--radius);
+            z-index: -1;
+        }
+
+        .split-image-container img {
+            box-shadow: var(--shadow);
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            background: var(--accent);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Services Grid */
+        .bg-gray {
+            background-color: #f8fbfa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .service-content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .service-icon {
+            background: var(--accent);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: -65px auto 20px auto;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 4px solid var(--white);
+        }
+
+        /* Contact/Booking Form */
+        .contact-section {
+            background: linear-gradient(135deg, var(--white) 50%, var(--accent) 50%);
+        }
+
+        .booking-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background-color: #fafafa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(64, 224, 208, 0.2);
+            background-color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-col p {
+            color: #b0c4de;
+            margin-bottom: 15px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b0c4de;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 3rem; }
+            .contact-section { background: var(--accent); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .section-title { font-size: 2.2rem; }
+            .hero { min-height: 70vh; padding: 120px 0 60px; }
+            .booking-form { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">🦷 Dog<span>Smile</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Book Now</a></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Book Appointment</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Premium Anesthesia-Free Pet Dental Care</h1>
+            <p>Your furry friend deserves a healthy, sparkling smile. We bring top-quality, safe, and painless mobile dental care directly to your doorstep in the Georgia area.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn btn-primary">Book Your Visit</a>
+                <a href="https://wa.link/o37d0u" target="_blank" class="btn" style="background: transparent; border: 2px solid white;">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Image Left, Text Right) -->
+    <section id="about" class="container">
+        <div class="split-layout">
+            <div class="split-image-container">
+                <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80" alt="Veterinarian with dog">
+            </div>
+            <div>
+                <h2 style="font-size: 2.5rem;">Expert Care, Right at Your Doorstep</h2>
+                <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 30px;">
+                    Preventive dental cleaning is the first thing we check when evaluating your dog's health. Traditional cleanings require putting your pet under anesthesia. We offer a safer, stress-free alternative with visible results from the very first session.
+                </p>
+                
+                <div class="list-item">
+                    <span style="font-size: 1.5rem;">👩‍⚕️</span>
+                    <div>
+                        <h4 style="margin-bottom: 5px;">Qualified Professionals</h4>
+                        <p style="margin: 0; color: var(--text-light); font-size: 0.95rem;">Service performed by an experienced Veterinarian from Colombia.</p>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <span style="font-size: 1.5rem;">🚐</span>
+                    <div>
+                        <h4 style="margin-bottom: 5px;">Fully Mobile Service</h4>
+                        <p style="margin: 0; color: var(--text-light); font-size: 0.95rem;">Skip the clinic traffic. We bring our fully equipped setup to your home.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Features Section with Images -->
+    <section id="services" class="bg-gray">
+        <div class="container">
+            <h2 class="section-title">What Makes Us Unique ✨</h2>
+            <p class="section-subtitle">We prioritize your dog's comfort and health while delivering outstanding, pain-free results.</p>
+            
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=600&q=80" alt="Happy Dog" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">🚫</div>
+                        <h3>No Anesthesia Needed</h3>
+                        <p style="color: var(--text-light); font-size: 0.95rem;">A completely natural, awake procedure eliminating the severe risks of general anesthesia for your pet.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80" alt="Dog Smiling" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">✨</div>
+                        <h3>Immediate Results</h3>
+                        <p style="color: var(--text-light); font-size: 0.95rem;">Watch tartar and plaque disappear! See drastically cleaner, healthier teeth and gums in just minutes.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=600&q=80" alt="Dog Care" class="service-img">
+                    <div class="service-content">
+                        <div class="service-icon">🫀</div>
+                        <h3>Long-Term Health</h3>
+                        <p style="color: var(--text-light); font-size: 0.95rem;">Healthy gums mean a healthy body. Preventive care protects your dog for a longer, happier life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Booking Form Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="split-layout">
+                <div>
+                    <h2 style="font-size: 2.8rem; margin-bottom: 20px;">Ready for a Brighter Smile?</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 30px;">
+                        Fill out the form to request a mobile appointment in the Atlanta, Georgia area. We will contact you to confirm the date and time.
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80" alt="Cute dog waiting" style="box-shadow: var(--shadow);">
+                </div>
+
+                <!-- The Form -->
+                <div class="booking-form">
+                    <h3 style="margin-bottom: 25px; text-align: center;">Book Mobile Service 🚐</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="ownerName">Your Name</label>
+                            <input type="text" id="ownerName" class="form-control" placeholder="e.g. John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="petName">Pet's Name & Breed</label>
+                            <input type="text" id="petName" class="form-control" placeholder="e.g. Max, Golden Retriever" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="(555) 123-4567" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Service Address (Atlanta Area)</label>
+                            <input type="text" id="address" class="form-control" placeholder="Your full home address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px; padding: 16px;">Request Appointment</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: var(--text-light);">
+                        Or book instantly via <a href="https://wa.link/o37d0u" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none;">WhatsApp</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 style="font-size: 1.8rem; font-weight: bold;">🦷 Dog<span style="color: var(--primary);">Smile</span></h3>
+                    <p>Specialists in anesthesia-free pet dental cleaning. Preventive care for a longer, happier life.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Information</h3>
+                    <p>📍 Atlanta, Georgia Area</p>
+                    <p>📱 WhatsApp: <a href="https://wa.link/o37d0u" style="color: var(--primary); text-decoration: none;">Click to Message</a></p>
+                    <p>📷 Instagram: <a href="https://instagram.com/dogsmile.georgia" style="color: var(--primary); text-decoration: none;">@dogsmile.georgia</a></p>
+                </div>
+                <div class="footer-col">
+                    <h3>Service Hours</h3>
+                    <p>Mobile appointments are available by scheduling. We come to your location.</p>
+                    <p style="color: var(--primary); font-weight: bold;">100% Safe & Painless</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dog Smile Georgia. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
